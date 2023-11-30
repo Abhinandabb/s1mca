@@ -1,0 +1,58 @@
+<html>
+    <body>
+        <link rel="stylesheet" href="style.css">
+
+        <div class="container">
+            <form id="form" class="form" name="form" onsubmit="return validateform()">
+                
+                <h2>Register With Us</h2>
+
+                    <div class="form-ctrl">
+                         <label class="username">First Name</label>
+                         <input type="text" name="name">
+                     </div>
+
+                     <div class="form-ctrl">
+                        <label class="username">Email</label>
+                        <input type="email" name="email">
+                    </div>
+
+                    <div class="form-ctrl">
+                        <label class="username">Password</label>
+                        <input type="password" name="password">
+                    </div>
+
+                    <div class="form-ctrl">
+                        <label class="username">Confirm Password</label>
+                        <input type="password" name="password">
+                    </div>
+
+                    <div class="form-ctrl"> 
+                        <input type="submit" class="form-btn">
+                    </div>
+
+
+
+            </form>
+        </div>
+
+
+<script type="text/javascript">
+            function validateform(){
+                var name = document.form.name.value;
+                var password = document.form.password.value;
+                var email = document.form.email.value;
+
+                if(name ==""){
+                    alert("Enter a name");
+                }
+                if(password.length<8){
+                    alert("Password must be min of 8 char");
+                }
+            }
+    
+</script>
+
+
+    </body>
+</html>
