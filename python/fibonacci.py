@@ -1,12 +1,9 @@
-n=int(input("enter the value:"))
+num=int(input("enter the number of fibonacci numbers to generate:"))
 a=0
 b=1
-sum=0
-count=1
-print("fibonacci series are:",end=" ")
-while(count <=n):
-    print(sum,end=" ")
-    count +=1
-    a=b
-    b=sum
-    sum=a+b
+fibo=[a]
+
+for i in range(1,num):
+    a,b=b,a+b
+    fibo.append(a)
+print(fibo)    
