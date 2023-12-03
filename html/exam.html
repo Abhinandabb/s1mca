@@ -1,0 +1,148 @@
+<html>
+    <head>
+        <title>User Registration</title>
+        <style>
+            #nav{
+                display: flex;
+                justify-content: space-between
+            }
+            .box {
+                width: 70%;
+                margin: 50px auto;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                text-align: center;
+                display:block;
+            }
+            #logform{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                font-size: 15px;
+                font-weight: bold;
+            }
+            #queform{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            input,button{
+                padding:5px 10px;
+                margin: 10px;
+                text-align: center;
+            }
+            .section{
+                display:none ;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="box header" id="header">
+            <h1>Login</h1>
+            <form name="logform" id="logform">
+                <label>Reg:no</label>
+                <input type="text" name="regno" placeholder="Enter the registrater no">
+                <label>Password</label>
+                <input type="password" name="pass" placeholder="Enter the password">
+            </form>
+            <button onclick="examVal()">SUBMIT</button>
+        </div>
+        <div class="box section" id="section">
+            <div id="nav"> <span>score:50</span> <span>time:<span id="timer"> 30:00</span></span> </div>
+            <h1>Questions </h1>
+
+
+
+            <form name="queform" id="queform">
+                1.  which is the National bird of india?
+                <label><input type="radio" name="1" id="">peacock</label>
+                <label><input type="radio" name="1" id="">sparrow</label>
+                <label><input type="radio" name="1" id="">swan</label>
+                <label><input type="radio" name="1" id="">pigeon</label>
+                2.Name the national flower of india?
+                <label><input type="radio" name="2" id="">jasmine</label>
+                <label><input type="radio" name="2" id="">lilly</label>
+                <label><input type="radio" name="2" id="">lotus</label>
+                <label><input type="radio" name="2" id="">rose</label>
+                3. biggset continent in the world?
+                <label><input type="radio" name="3" id="">africa</label>
+                <label><input type="radio" name="3" id="">europe</label>
+                <label><input type="radio" name="3" id="">asia</label>
+                <label><input type="radio" name="3" id="">north america</label>
+                4.Sun rises in where?
+                <label><input type="radio" name="4" id=""> east</label>
+                <label><input type="radio" name="4" id=""> west</label>
+                <label><input type="radio" name="4" id=""> south</label>
+                <label><input type="radio" name="4" id=""> north</label>
+                5. How many ststes are there in india?
+                <label><input type="radio" name="5" id="">20</label>
+                <label><input type="radio" name="5" id="">26</label>
+                <label><input type="radio" name="5" id="">28</label>
+                <label><input type="radio" name="5" id="">29</label>
+            </form>
+            <button onclick="login()">SUBMIT</button>
+        </div>
+
+    <script>
+        function examVal() {
+            var regno = document.logform.regno.value;
+            var pass = document.logform.pass.value;
+            console.log(regno);
+            console.log(pass);
+            if (regno == "" || regno == null || pass == "" || pass == null ) {
+                alert("Either register number or password is empty");
+                return false;
+            }
+
+            if (regno.indexOf("AWH") == -1) {
+                alert("Invalid register number");
+                return false;
+            }
+            if (pass.length <= 7) {
+                alert("The password is shorter than 8 characters");
+                return false;
+            }
+            document.getElementById('header').style.display="none"
+            document.getElementById('section').style.display = 'block';
+            return true
+        }
+      
+        var durationInSeconds = 30 * 60;
+
+        var timerDisplay = document.getElementById('timer');
+        
+        function updateTimer() {
+            var minutes = Math.floor(durationInSeconds / 60);
+            var seconds = durationInSeconds % 60;
+            
+            // Add leading zeros to minutes and seconds
+            var formattedTime = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            
+            timerDisplay.textContent = formattedTime;
+            
+            if (durationInSeconds > 0) {
+                durationInSeconds--;
+                setTimeout(updateTimer, 1000); // Update every second
+            } else {
+                timerDisplay.textContent = "Time's up!";
+            }
+        }
+        // Start the timer
+        updateTimer();
+        
+        
+        
+       
+        function login() {
+             var regno = document.logform.regno.value;
+            var pass = document.logform.pass.value;
+            alert("registrater  "+regno+" successfully finished Your Exam")
+            document.getElementById('header').style.display="block"
+            document.getElementById('section').style.display = 'none';
+        }
+        
+    </script>
+    </body>
+</html>
